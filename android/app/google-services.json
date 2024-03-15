@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "826815952995",
+    "project_id": "mealprep2135",
+    "storage_bucket": "mealprep2135.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:826815952995:android:d69133e2df7794f4ebe056",
+        "android_client_info": {
+          "package_name": "com.example.meal_prep"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqB1DHcKf7KHVe4tJsAySjsnSBMtOUrPA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
