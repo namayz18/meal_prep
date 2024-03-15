@@ -63,11 +63,6 @@ class Recipe {
   factory Recipe.fromJson(Map<String, dynamic> json) => _$RecipeFromJson(json);
 
   Map<String, dynamic> toJson() => _$RecipeToJson(this);
-
-  // Choose one of person field to be the key
-  // this key will be used to save to local database
-  @override
-  String get key => id;
 }
 
 List<Recipe> recipeList = recipeData

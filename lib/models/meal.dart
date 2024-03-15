@@ -20,11 +20,6 @@ class Meal {
   factory Meal.fromJson(Map<String, dynamic> json) => _$MealFromJson(json);
 
   Map<String, dynamic> toJson() => _$MealToJson(this);
-
-  // Choose one of person field to be the key
-  // this key will be used to save to local database
-  @override
-  String get key => id;
 }
 
 List<Meal> mealList = [];
