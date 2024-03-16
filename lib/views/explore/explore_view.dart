@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:meal_prep/core/extensions/text_styles.dart';
 import 'package:meal_prep/core/extensions/theme_colors.dart';
+import 'package:meal_prep/models/recipe.dart';
 import 'package:meal_prep/views/explore/controller/recipe_controller.dart';
 import 'package:meal_prep/views/explore/widget/category_card.dart';
 import 'package:meal_prep/views/search/search_view.dart';
@@ -17,13 +18,13 @@ class ExploreView extends StatefulWidget {
 }
 
 class _ExploreViewState extends State<ExploreView> {
-  final RecipeController _recipeController = RecipeController();
+  RecipeController _recipeController = RecipeController();
+
   final TextEditingController _searchController = TextEditingController();
   bool isEmpty = false;
   @override
   void initState() {
     super.initState();
-    _recipeController.fetchRecipes();
     // Start listening to changes.
     _searchController.addListener(_printLatestValue);
   }
@@ -116,42 +117,8 @@ class _ExploreViewState extends State<ExploreView> {
                   const SizedBox(height: 30),
                   const CustomHeadingText(title: 'Latest Recipes'),
                   const SizedBox(height: 16),
-                  SizedBox(
-                    height: 200,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: _recipeController.recipeList.length,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: index == 0
-                              ? const EdgeInsets.only(left: 16.0, right: 4.0)
-                              : const EdgeInsets.symmetric(horizontal: 8.0),
-                          child: RecipeCard(
-                              recipe: _recipeController.recipeList[index]),
-                        );
-                      },
-                    ),
-                  ),
+                  latestRecipeWidget(context, _recipeController),
                   const SizedBox(height: 30),
-                  const CustomHeadingText(title: 'Popular Recipes'),
-                  const SizedBox(height: 16),
-                  SizedBox(
-                    height: 200,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: _recipeController.recipeList.length,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: index == 0
-                              ? const EdgeInsets.only(left: 16.0, right: 4.0)
-                              : const EdgeInsets.symmetric(horizontal: 8.0),
-                          child: RecipeCard(
-                              recipe: _recipeController.recipeList[index]),
-                        );
-                      },
-                    ),
-                  ),
-                  const SizedBox(height: 16),
                 ],
               ),
             ),
@@ -160,4 +127,37 @@ class _ExploreViewState extends State<ExploreView> {
       ),
     );
   }
+}
+
+Widget latestRecipeWidget(BuildContext context, RecipeController controller) {
+  final Future<List<Recipe>> recipeList = controller.fetchRecipes();
+  return SizedBox(
+    height: 200,
+    child: FutureBuilder<List<Recipe>>(
+      future: recipeList,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Center(child: CircularProgressIndicator());
+        } else if (snapshot.hasError) {
+          return Center(child: Text('Error: ${snapshot.error}'));
+        } else if (snapshot.data == null) {
+          return Center(child: Text('No recipes found'));
+        } else {
+          final latestRecipes = snapshot.data ?? [];
+          return ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: latestRecipes.length,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: index == 0
+                    ? const EdgeInsets.only(left: 16.0, right: 4.0)
+                    : const EdgeInsets.symmetric(horizontal: 8.0),
+                child: RecipeCard(recipe: latestRecipes[index]),
+              );
+            },
+          );
+        }
+      },
+    ),
+  );
 }
