@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:meal_prep/core/extensions/text_styles.dart';
-import 'package:meal_prep/models/account.dart';
+import 'package:meal_prep/models/user.dart';
 
 class AccountWidget extends StatelessWidget {
-  final Account account;
-  const AccountWidget({Key? key, required this.account}) : super(key: key);
+  final User user;
+  const AccountWidget({Key? key, required this.user}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class AccountWidget extends StatelessWidget {
             height: 50,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(account.imageUrl),
+                image: AssetImage(user.imageUrl),
                 fit: BoxFit.contain,
               ),
               shape: BoxShape.circle,
@@ -30,7 +30,7 @@ class AccountWidget extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Text(
-                  '${account.firstName} ${account.lastName}',
+                  '${user.firstName} ${user.lastName}',
                   style: context.heading,
                 ),
               ),

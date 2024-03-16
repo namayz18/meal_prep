@@ -116,29 +116,22 @@ class _ExploreViewState extends State<ExploreView> {
                   const SizedBox(height: 30),
                   const CustomHeadingText(title: 'Latest Recipes'),
                   const SizedBox(height: 16),
-                  _recipeController.isLoading
-                      ? const Center(
-                          child: CircularProgressIndicator(),
-                        )
-                      : SizedBox(
-                          height: 200,
-                          child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: _recipeController.recipeList.length,
-                            itemBuilder: (context, index) {
-                              return Padding(
-                                padding: index == 0
-                                    ? const EdgeInsets.only(
-                                        left: 16.0, right: 4.0)
-                                    : const EdgeInsets.symmetric(
-                                        horizontal: 8.0),
-                                child: RecipeCard(
-                                    recipe:
-                                        _recipeController.recipeList[index]),
-                              );
-                            },
-                          ),
-                        ),
+                  SizedBox(
+                    height: 200,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: _recipeController.recipeList.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: index == 0
+                              ? const EdgeInsets.only(left: 16.0, right: 4.0)
+                              : const EdgeInsets.symmetric(horizontal: 8.0),
+                          child: RecipeCard(
+                              recipe: _recipeController.recipeList[index]),
+                        );
+                      },
+                    ),
+                  ),
                   const SizedBox(height: 30),
                   const CustomHeadingText(title: 'Popular Recipes'),
                   const SizedBox(height: 16),

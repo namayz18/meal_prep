@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:hive/hive.dart';
-import 'package:meal_prep/models/account.dart';
+import 'package:meal_prep/models/user.dart';
 
 abstract class LocalEntity {
   final String key;
@@ -9,8 +9,8 @@ abstract class LocalEntity {
 
   factory LocalEntity.fromJson(Type type, Map<String, dynamic> e) {
     switch (type) {
-      case Account:
-        return Account.fromJson(e);
+      case User:
+        return User.fromJson(e);
       default:
         throw Exception();
     }

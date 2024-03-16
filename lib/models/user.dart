@@ -1,9 +1,9 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:meal_prep/core/helper/local_entity.dart';
+import 'package:meal_prep/core/database/local_entity.dart';
 import 'package:meal_prep/models/meal.dart';
 import 'package:meal_prep/models/recipe.dart';
 
-part 'account.g.dart';
+part 'user.g.dart';
 
 @JsonSerializable()
 class FavoriteMeal {
@@ -55,7 +55,7 @@ class ShoppingList {
 
 // don't forget to add fromJson and toJson
 @JsonSerializable()
-class Account implements LocalEntity {
+class User implements LocalEntity {
   final String id;
   final String firstName;
   final String lastName;
@@ -68,7 +68,7 @@ class Account implements LocalEntity {
   final List<PersonalRecipe>? personalRecipes;
   final List<ShoppingList>? shoppingList;
 
-  Account({
+  User({
     required this.id,
     required this.firstName,
     required this.lastName,
@@ -82,10 +82,9 @@ class Account implements LocalEntity {
     this.shoppingList,
   });
 
-  factory Account.fromJson(Map<String, dynamic> json) =>
-      _$AccountFromJson(json);
+  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
-  Map<String, dynamic> toJson() => _$AccountToJson(this);
+  Map<String, dynamic> toJson() => _$UserToJson(this);
 
   // Choose one of person field to be the key
   // this key will be used to save to local database

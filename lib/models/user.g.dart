@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'account.dart';
+part of 'user.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
@@ -40,7 +40,7 @@ Map<String, dynamic> _$ShoppingListToJson(ShoppingList instance) =>
       'recipe': instance.recipe,
     };
 
-Account _$AccountFromJson(Map<String, dynamic> json) => Account(
+User _$UserFromJson(Map<String, dynamic> json) => User(
       id: json['id'] as String,
       firstName: json['firstName'] as String,
       lastName: json['lastName'] as String,
@@ -62,7 +62,7 @@ Account _$AccountFromJson(Map<String, dynamic> json) => Account(
           .toList(),
     );
 
-Map<String, dynamic> _$AccountToJson(Account instance) => <String, dynamic>{
+Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'id': instance.id,
       'firstName': instance.firstName,
       'lastName': instance.lastName,

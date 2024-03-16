@@ -22,7 +22,7 @@ class _ProfileViewState extends State<ProfileView> {
       body: SafeArea(
         child: ListView(
           children: [
-            _controller.isAccountEmpty()
+            _controller.isUserEmpty()
                 ? Padding(
                     padding: const EdgeInsets.symmetric(vertical: 16.0),
                     child: CustomButton(
@@ -35,7 +35,7 @@ class _ProfileViewState extends State<ProfileView> {
                     ),
                   )
                 : AccountWidget(
-                    account: _controller.getAccountDetail(),
+                    user: _controller.getUserDetail(),
                   ),
             const SizedBox(height: 4),
             const Padding(
@@ -56,7 +56,7 @@ class _ProfileViewState extends State<ProfileView> {
             ),
             SupportWidget(),
             const SizedBox(height: 30),
-            _controller.isAccountEmpty()
+            _controller.isUserEmpty()
                 ? const SizedBox(height: 0)
                 : Column(
                     children: [

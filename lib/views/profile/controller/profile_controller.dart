@@ -1,56 +1,30 @@
-import 'package:meal_prep/core/helper/local_entity.dart';
-import 'package:meal_prep/models/account.dart';
+import 'package:meal_prep/models/user.dart';
+import 'package:meal_prep/services/local_user_service.dart';
 
 class ProfileController {
-  final accountRepo = LocalEntityRepository("account");
+  final localUserService = LocalUserService();
 
-  savePerson(Account account) {
-    // add try/catch as you want
-    accountRepo.createOrUpdate(account);
+  saveUser(User user) {
+    localUserService.saveUser(user);
   }
 
-  List<Account> getAllPerson() {
-    final accounts = accountRepo.getAllEntities<Account>();
-    return accounts;
+  List<User> getAllPerson() {
+    return localUserService.getAllPerson();
   }
 
-  bool isAccountEmpty() {
-    final accounts = accountRepo.getAllEntities<Account>();
-    return accounts.isEmpty;
+  bool isUserEmpty() {
+    return localUserService.isUserEmpty();
   }
 
-  Account getAccountDetail() {
-    if (!isAccountEmpty()) {
-      final accounts = accountRepo.getAllEntities<Account>();
-      return accounts.first;
-    } else {
-      return Account(
-        id: "1",
-        firstName: "",
-        lastName: "",
-        age: 25,
-        height: 180,
-        weight: 70,
-        imageUrl: "assets/images/profile.jpg",
-      );
-    }
+  User getUserDetail() {
+    return localUserService.getUserDetail();
   }
 
   onPressLogin() {
-    var account = Account(
-      id: "1",
-      firstName: "John",
-      lastName: "Doe",
-      age: 25,
-      height: 180,
-      weight: 70,
-      imageUrl: "assets/images/profile.jpg",
-    );
-
-    savePerson(account);
+    localUserService.onPressLogin();
   }
 
   onPressSignOut() {
-    accountRepo.deleteData(getAccountDetail().id);
+    localUserService.onPressSignOut();
   }
 }

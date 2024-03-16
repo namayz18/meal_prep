@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meal_prep/core/extensions/text_styles.dart';
-import 'package:meal_prep/core/extensions/theme_colors.dart';
-import 'package:meal_prep/models/category.dart';
 import 'package:meal_prep/models/meal.dart';
-import 'package:meal_prep/models/recipe.dart';
 import 'package:meal_prep/widgets/card/meal_small_card.dart';
 import 'package:meal_prep/widgets/textfield/search_textfield.dart';
 

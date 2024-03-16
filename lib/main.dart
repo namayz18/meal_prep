@@ -1,8 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:meal_prep/core/helper/firebase_options.dart';
-import 'package:meal_prep/core/services/firestore_service.dart';
+import 'package:meal_prep/core/config/firebase_options.dart';
 import 'package:meal_prep/core/themes/app_theme.dart';
 import 'package:meal_prep/views/main/main_view.dart';
 
@@ -13,7 +12,7 @@ void main() async {
   // Initialize Hive
   await Hive.initFlutter();
   // Open the box
-  await Hive.openBox('account');
+  await Hive.openBox('user');
 
   runApp(const MyApp());
 }

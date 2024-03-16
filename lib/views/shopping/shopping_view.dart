@@ -29,11 +29,7 @@ class _ShoppingViewState extends State<ShoppingView> {
               children: [
                 const CustomHeadingText(title: 'My Shopping List'),
                 const Spacer(),
-                CustomTextButton(
-                    title: 'Edit',
-                    onPress: () {
-                      _controller.addRecipe();
-                    }),
+                CustomTextButton(title: 'Edit', onPress: () {}),
               ],
             ),
             Expanded(
