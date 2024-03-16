@@ -58,73 +58,73 @@ class _SearchViewState extends State<SearchView> {
   }
 }
 
-Widget searchGridResultView() {
-  return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 16.0),
-    child: GridView.builder(
-      physics: const NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3, // number of items in each row
-        mainAxisSpacing: 16.0, // spacing between rows
-        crossAxisSpacing: 8.0, // spacing between columns
-        childAspectRatio: 1 / 1.5, // width to height ratio
-      ),
-      // padding around the grid
+// Widget searchGridResultView() {
+//   return Padding(
+//     padding: const EdgeInsets.symmetric(horizontal: 16.0),
+//     child: GridView.builder(
+//       physics: const NeverScrollableScrollPhysics(),
+//       shrinkWrap: true,
+//       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+//         crossAxisCount: 3, // number of items in each row
+//         mainAxisSpacing: 16.0, // spacing between rows
+//         crossAxisSpacing: 8.0, // spacing between columns
+//         childAspectRatio: 1 / 1.5, // width to height ratio
+//       ),
+//       // padding around the grid
 
-      itemCount: categoryList.length, // total number of items
-      itemBuilder: (context, index) {
-        return Container(
-          clipBehavior: Clip.hardEdge,
-          decoration: BoxDecoration(
-            color: context.onPrimary,
-            border: Border.all(
-              color: context.secondary.withOpacity(0.1),
-            ),
-            borderRadius: const BorderRadius.all(
-              Radius.circular(10),
-            ),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Flexible(
-                child: Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: AssetImage(
-                          'assets/images/category/${categoryList[index].image}'),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: SizedBox(
-                  height: 40,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        recipeList[index].name,
-                        textAlign: TextAlign.start,
-                        style: context.title,
-                        maxLines: 2,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-        );
-      },
-    ),
-  );
-}
+//       itemCount: categoryList.length, // total number of items
+//       itemBuilder: (context, index) {
+//         return Container(
+//           clipBehavior: Clip.hardEdge,
+//           decoration: BoxDecoration(
+//             color: context.onPrimary,
+//             border: Border.all(
+//               color: context.secondary.withOpacity(0.1),
+//             ),
+//             borderRadius: const BorderRadius.all(
+//               Radius.circular(10),
+//             ),
+//           ),
+//           child: Column(
+//             mainAxisAlignment: MainAxisAlignment.start,
+//             crossAxisAlignment: CrossAxisAlignment.start,
+//             children: [
+//               Flexible(
+//                 child: Container(
+//                   decoration: BoxDecoration(
+//                     image: DecorationImage(
+//                       fit: BoxFit.cover,
+//                       image: AssetImage(
+//                           'assets/images/category/${categoryList[index].image}'),
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//               Padding(
+//                 padding: const EdgeInsets.all(8.0),
+//                 child: SizedBox(
+//                   height: 40,
+//                   child: Column(
+//                     mainAxisAlignment: MainAxisAlignment.start,
+//                     crossAxisAlignment: CrossAxisAlignment.start,
+//                     children: [
+//                       Text(
+//                         recipeList[index].name,
+//                         textAlign: TextAlign.start,
+//                         style: context.title,
+//                         maxLines: 2,
+//                       ),
+//                     ],
+//                   ),
+//                 ),
+//               ),
+//             ],
+//           ),
+//         );
+//       },
+//     ),
+//   );
+// }
 
 Widget searchListResultView() {
   return ListView.builder(

@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:meal_prep/core/extensions/text_styles.dart';
 import 'package:meal_prep/core/extensions/theme_colors.dart';
 import 'package:meal_prep/models/meal.dart';
+import 'package:meal_prep/views/shopping/controller/shopping_controller.dart';
 import 'package:meal_prep/widgets/button/custom_icon_text_button.dart';
 import 'package:meal_prep/widgets/button/custom_text_button.dart';
 import 'package:meal_prep/widgets/card/meal_tile_card.dart';
@@ -16,6 +17,7 @@ class ShoppingView extends StatefulWidget {
 }
 
 class _ShoppingViewState extends State<ShoppingView> {
+  final ShoppingController _controller = ShoppingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +29,11 @@ class _ShoppingViewState extends State<ShoppingView> {
               children: [
                 const CustomHeadingText(title: 'My Shopping List'),
                 const Spacer(),
-                CustomTextButton(title: 'Edit', onPress: () {}),
+                CustomTextButton(
+                    title: 'Edit',
+                    onPress: () {
+                      _controller.addRecipe();
+                    }),
               ],
             ),
             Expanded(
