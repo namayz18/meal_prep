@@ -1,5 +1,5 @@
-import 'package:meal_prep/services/firestore_service.dart';
 import 'package:meal_prep/models/Category.dart';
+import 'package:meal_prep/services/main/firestore_service.dart';
 
 class CategoryService {
   FirestoreService firestoreService = FirestoreService();

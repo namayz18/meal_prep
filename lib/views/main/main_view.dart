@@ -4,8 +4,8 @@ import 'package:meal_prep/core/extensions/theme_colors.dart';
 import 'package:meal_prep/views/explore/explore_view.dart';
 import 'package:meal_prep/views/home/home_view.dart';
 import 'package:meal_prep/views/profile/profile_view.dart';
-import 'package:meal_prep/views/recipe/recipe_view.dart';
 import 'package:meal_prep/views/shopping/shopping_view.dart';
+import 'package:meal_prep/views/stats/stats_view.dart';
 
 class MainView extends StatefulWidget {
   const MainView({Key? key}) : super(key: key);
@@ -26,17 +26,15 @@ class _MainViewState extends State<MainView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: IndexedStack(
-          index: _selectedIndex,
-          children: const [
-            HomeView(),
-            ExploreView(),
-            ShoppingView(),
-            RecipeView(),
-            ProfileView(),
-          ],
-        ),
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: const [
+          HomeView(),
+          ExploreView(),
+          ShoppingView(),
+          StatsView(),
+          ProfileView(),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[

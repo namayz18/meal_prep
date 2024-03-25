@@ -1,6 +1,7 @@
 import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/material.dart';
 import 'package:meal_prep/core/extensions/theme_colors.dart';
+import 'package:meal_prep/views/home/controller/home_view_controller.dart';
 import 'package:meal_prep/views/home/view/home_day_view.dart';
 import 'package:meal_prep/views/home/view/home_month_view.dart';
 import 'package:meal_prep/views/home/view/home_week_view.dart';
@@ -16,10 +17,11 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  final HomeViewController _homeViewController = HomeViewController();
   Calendar _selected = Calendar.day;
   String _calendarTitle = 'Today';
   DateTime _focusDate = DateTime.now();
-  final EasyInfiniteDateTimelineController _controller =
+  final EasyInfiniteDateTimelineController _dateTimelineController =
       EasyInfiniteDateTimelineController();
 
   // Function to handle calendar selection change
@@ -41,7 +43,7 @@ class _HomeViewState extends State<HomeView> {
       setState(() {
         _focusDate = DateTime.now();
         _calendarTitle = _getCalendarTitle();
-        _controller.animateToCurrentData();
+        _dateTimelineController.animateToCurrentData();
       });
     }
   }
@@ -67,16 +69,20 @@ class _HomeViewState extends State<HomeView> {
           focusDate: _focusDate,
           onDateChange: _handleOnDateChange,
           onPressCalendar: _handleGoToCurrentDate,
-          controller: _controller,
+          controller: _homeViewController,
+          dateTimelineController: _dateTimelineController,
         );
       case Calendar.week:
         return HomeWeekView(
           focusDate: _focusDate,
           onDateChange: _handleOnDateChange,
           onPressCalendar: () {},
+          controller: _homeViewController,
         );
       case Calendar.month:
-        return const HomeMonthView();
+        return HomeMonthView(
+          controller: _homeViewController,
+        );
     }
   }
 
@@ -87,7 +93,7 @@ class _HomeViewState extends State<HomeView> {
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(80),
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(vertical: 16.0),
             child: Row(
               children: [
                 const Spacer(),

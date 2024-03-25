@@ -18,7 +18,7 @@ class AccountWidget extends StatelessWidget {
             height: 50,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(user.imageUrl),
+                image: AssetImage(user.account.imageUrl),
                 fit: BoxFit.contain,
               ),
               shape: BoxShape.circle,
@@ -30,7 +30,7 @@ class AccountWidget extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Text(
-                  '${user.firstName} ${user.lastName}',
+                  '${user.account.firstName} ${user.account.lastName}',
                   style: context.heading,
                 ),
               ),

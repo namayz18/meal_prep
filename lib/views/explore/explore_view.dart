@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+
 import 'package:meal_prep/core/extensions/text_styles.dart';
 import 'package:meal_prep/core/extensions/theme_colors.dart';
 import 'package:meal_prep/models/recipe.dart';
-import 'package:meal_prep/views/explore/controller/recipe_controller.dart';
+import 'package:meal_prep/controllers/recipe_controller.dart';
 import 'package:meal_prep/views/explore/widget/category_card.dart';
+import 'package:meal_prep/views/recipe/recipe_view.dart';
 import 'package:meal_prep/views/search/search_view.dart';
 import 'package:meal_prep/widgets/card/recipe_card.dart';
 import 'package:meal_prep/views/explore/widget/saved_card.dart';
@@ -18,7 +20,7 @@ class ExploreView extends StatefulWidget {
 }
 
 class _ExploreViewState extends State<ExploreView> {
-  RecipeController _recipeController = RecipeController();
+  final RecipeController _recipeController = RecipeController();
 
   final TextEditingController _searchController = TextEditingController();
   bool isEmpty = false;
@@ -130,18 +132,18 @@ class _ExploreViewState extends State<ExploreView> {
 }
 
 Widget latestRecipeWidget(BuildContext context, RecipeController controller) {
-  final Future<List<Recipe>> recipeList = controller.fetchRecipes();
+  final Future<List<Recipe>> recipeList = controller.getRecipes();
   return SizedBox(
     height: 200,
     child: FutureBuilder<List<Recipe>>(
       future: recipeList,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         } else if (snapshot.hasError) {
           return Center(child: Text('Error: ${snapshot.error}'));
         } else if (snapshot.data == null) {
-          return Center(child: Text('No recipes found'));
+          return const Center(child: Text('No recipes found'));
         } else {
           final latestRecipes = snapshot.data ?? [];
           return ListView.builder(
@@ -152,7 +154,17 @@ Widget latestRecipeWidget(BuildContext context, RecipeController controller) {
                 padding: index == 0
                     ? const EdgeInsets.only(left: 16.0, right: 4.0)
                     : const EdgeInsets.symmetric(horizontal: 8.0),
-                child: RecipeCard(recipe: latestRecipes[index]),
+                child: RecipeCard(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => RecipeView(
+                            recipe: latestRecipes[index],
+                          ),
+                        ),
+                      );
+                    },
+                    recipe: latestRecipes[index]),
               );
             },
           );

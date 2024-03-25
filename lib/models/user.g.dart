@@ -42,34 +42,32 @@ Map<String, dynamic> _$ShoppingListToJson(ShoppingList instance) =>
 
 User _$UserFromJson(Map<String, dynamic> json) => User(
       id: json['id'] as String,
-      firstName: json['firstName'] as String,
-      lastName: json['lastName'] as String,
+      account: Account.fromJson(json['account'] as Map<String, dynamic>),
+      isLoggedIn: json['isLoggedIn'] as bool,
       age: json['age'] as int,
       height: (json['height'] as num).toDouble(),
       weight: (json['weight'] as num).toDouble(),
-      imageUrl: json['imageUrl'] as String,
-      meals: (json['meals'] as List<dynamic>?)
-          ?.map((e) => Meal.fromJson(e as Map<String, dynamic>))
+      meals: (json['meals'] as List<dynamic>)
+          .map((e) => Meal.fromJson(e as Map<String, dynamic>))
           .toList(),
-      favoriteMeals: (json['favoriteMeals'] as List<dynamic>?)
-          ?.map((e) => FavoriteMeal.fromJson(e as Map<String, dynamic>))
+      favoriteMeals: (json['favoriteMeals'] as List<dynamic>)
+          .map((e) => FavoriteMeal.fromJson(e as Map<String, dynamic>))
           .toList(),
-      personalRecipes: (json['personalRecipes'] as List<dynamic>?)
-          ?.map((e) => PersonalRecipe.fromJson(e as Map<String, dynamic>))
+      personalRecipes: (json['personalRecipes'] as List<dynamic>)
+          .map((e) => PersonalRecipe.fromJson(e as Map<String, dynamic>))
           .toList(),
-      shoppingList: (json['shoppingList'] as List<dynamic>?)
-          ?.map((e) => ShoppingList.fromJson(e as Map<String, dynamic>))
+      shoppingList: (json['shoppingList'] as List<dynamic>)
+          .map((e) => ShoppingList.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
 Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'id': instance.id,
-      'firstName': instance.firstName,
-      'lastName': instance.lastName,
+      'account': instance.account,
+      'isLoggedIn': instance.isLoggedIn,
       'age': instance.age,
       'height': instance.height,
       'weight': instance.weight,
-      'imageUrl': instance.imageUrl,
       'meals': instance.meals,
       'favoriteMeals': instance.favoriteMeals,
       'personalRecipes': instance.personalRecipes,

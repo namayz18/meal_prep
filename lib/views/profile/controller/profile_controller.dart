@@ -1,5 +1,5 @@
 import 'package:meal_prep/models/user.dart';
-import 'package:meal_prep/services/local_user_service.dart';
+import 'package:meal_prep/services/local/local_user_service.dart';
 
 class ProfileController {
   final localUserService = LocalUserService();
@@ -16,7 +16,7 @@ class ProfileController {
     return localUserService.isUserEmpty();
   }
 
-  User getUserDetail() {
+  User? getUserDetail() {
     return localUserService.getUserDetail();
   }
 

@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:meal_prep/core/extensions/text_styles.dart';
 import 'package:meal_prep/core/extensions/theme_colors.dart';
+import 'package:meal_prep/views/home/controller/home_view_controller.dart';
 import 'package:meal_prep/widgets/button/custom_icon_text_button.dart';
-import 'package:meal_prep/widgets/text/custom_heading_text.dart';
 
 class AddMealWidget extends StatelessWidget {
+  final HomeViewController controller;
   const AddMealWidget({
     Key? key,
+    required this.controller,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
@@ -34,21 +36,22 @@ class AddMealWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const CustomHeadingText(title: 'Plan Your Meals'),
-            const SizedBox(height: 8.0),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Text(
-                'You can create a meal plan for the day or the week. You can also add your own meals and recipes or get help from our meal AI.',
+                'You can create your own meal plan for the day or week or get help from our meal AI.',
                 style: context.description,
                 textAlign: TextAlign.center,
               ),
             ),
-            const SizedBox(height: 30.0),
-            const CustomIconTextButton(
+            const SizedBox(height: 20.0),
+            CustomIconTextButton(
               icon: 'assets/icons/Plus.svg',
               title: 'Add Meal Plan',
               isPrimary: true,
+              onPress: () {
+                controller.addMeal();
+              },
             ),
           ],
         ),

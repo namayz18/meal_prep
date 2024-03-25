@@ -1,5 +1,7 @@
 import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/material.dart';
+import 'package:meal_prep/views/home/controller/home_view_controller.dart';
+import 'package:meal_prep/views/home/view/home_meal_category_view.dart';
 import 'package:meal_prep/views/home/widgets/add_meal_widget.dart';
 import 'package:meal_prep/views/home/widgets/calendar_title_widget.dart';
 import 'package:meal_prep/views/home/widgets/home_stats_widget.dart';
@@ -10,7 +12,8 @@ class HomeDayView extends StatelessWidget {
   final DateTime focusDate;
   final void Function(DateTime) onDateChange;
   final VoidCallback onPressCalendar;
-  final EasyInfiniteDateTimelineController controller;
+  final HomeViewController controller;
+  final EasyInfiniteDateTimelineController dateTimelineController;
 
   const HomeDayView({
     Key? key,
@@ -19,6 +22,7 @@ class HomeDayView extends StatelessWidget {
     required this.onDateChange,
     required this.onPressCalendar,
     required this.controller,
+    required this.dateTimelineController,
   }) : super(key: key);
 
   @override
@@ -33,11 +37,16 @@ class HomeDayView extends StatelessWidget {
         CalendarWeekWidget(
           focusDate: focusDate,
           onDateChange: onDateChange,
-          controller: controller,
+          controller: dateTimelineController,
         ),
         const SizedBox(height: 16),
+        const SizedBox(height: 16),
         const HomeStatsWidget(),
-        const AddMealWidget(),
+        const SizedBox(height: 16),
+        AddMealWidget(controller: controller),
+        const SizedBox(height: 16),
+        HomeMealCategoryView(controller: controller),
+        const SizedBox(height: 80),
       ],
     );
   }

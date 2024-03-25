@@ -123,7 +123,7 @@ Widget allIngredientsListWidget(BuildContext context) {
             ),
             const Spacer(),
             Text(
-              '2',
+              '0',
               textAlign: TextAlign.start,
               style: context.description,
               maxLines: 1,

@@ -35,7 +35,7 @@ class _ProfileViewState extends State<ProfileView> {
                     ),
                   )
                 : AccountWidget(
-                    user: _controller.getUserDetail(),
+                    user: _controller.getUserDetail()!,
                   ),
             const SizedBox(height: 4),
             const Padding(

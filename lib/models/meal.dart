@@ -6,12 +6,14 @@ part 'meal.g.dart';
 @JsonSerializable()
 class Meal {
   final String id;
+  final String category;
   final Recipe recipe;
   final bool eaten;
   final String date;
 
   Meal({
     required this.id,
+    required this.category,
     required this.recipe,
     required this.eaten,
     required this.date,
