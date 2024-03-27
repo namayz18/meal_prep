@@ -50,7 +50,7 @@ class AddMealWidget extends StatelessWidget {
               title: 'Add Meal Plan',
               isPrimary: true,
               onPress: () {
-                controller.addMeal();
+                // controller.addMeal();
               },
             ),
           ],

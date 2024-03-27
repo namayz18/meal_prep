@@ -3,9 +3,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:meal_prep/core/extensions/theme_colors.dart';
 import 'package:meal_prep/views/explore/explore_view.dart';
 import 'package:meal_prep/views/home/home_view.dart';
+import 'package:meal_prep/views/meal/meal_view.dart';
 import 'package:meal_prep/views/profile/profile_view.dart';
 import 'package:meal_prep/views/shopping/shopping_view.dart';
-import 'package:meal_prep/views/stats/stats_view.dart';
 
 class MainView extends StatefulWidget {
   const MainView({Key? key}) : super(key: key);
@@ -30,9 +30,9 @@ class _MainViewState extends State<MainView> {
         index: _selectedIndex,
         children: const [
           HomeView(),
+          MealView(),
           ExploreView(),
           ShoppingView(),
-          StatsView(),
           ProfileView(),
         ],
       ),
@@ -41,8 +41,8 @@ class _MainViewState extends State<MainView> {
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               "assets/icons/House.svg",
-              width: 24,
-              height: 24,
+              width: 20,
+              height: 20,
               colorFilter: ColorFilter.mode(
                 context.secondary,
                 BlendMode.srcIn,
@@ -50,8 +50,8 @@ class _MainViewState extends State<MainView> {
             ),
             activeIcon: SvgPicture.asset(
               "assets/icons/House.svg",
-              width: 24,
-              height: 24,
+              width: 20,
+              height: 20,
               colorFilter: ColorFilter.mode(
                 context.primary,
                 BlendMode.srcIn,
@@ -62,8 +62,8 @@ class _MainViewState extends State<MainView> {
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               "assets/icons/Magnifier.svg",
-              width: 24,
-              height: 24,
+              width: 20,
+              height: 20,
               colorFilter: ColorFilter.mode(
                 context.secondary,
                 BlendMode.srcIn,
@@ -71,14 +71,35 @@ class _MainViewState extends State<MainView> {
             ),
             activeIcon: SvgPicture.asset(
               "assets/icons/Magnifier.svg",
-              width: 24,
-              height: 24,
+              width: 20,
+              height: 20,
               colorFilter: ColorFilter.mode(
                 context.primary,
                 BlendMode.srcIn,
               ),
             ),
-            label: 'Explore',
+            label: 'Meal Plans',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              "assets/icons/Spoon.svg",
+              width: 20,
+              height: 20,
+              colorFilter: ColorFilter.mode(
+                context.secondary,
+                BlendMode.srcIn,
+              ),
+            ),
+            activeIcon: SvgPicture.asset(
+              "assets/icons/Spoon.svg",
+              width: 20,
+              height: 20,
+              colorFilter: ColorFilter.mode(
+                context.primary,
+                BlendMode.srcIn,
+              ),
+            ),
+            label: 'Recipes',
           ),
           BottomNavigationBarItem(
             icon: Stack(
@@ -86,8 +107,8 @@ class _MainViewState extends State<MainView> {
               children: [
                 SvgPicture.asset(
                   "assets/icons/Bag.svg",
-                  width: 24,
-                  height: 24,
+                  width: 20,
+                  height: 20,
                   colorFilter: ColorFilter.mode(
                     context.secondary,
                     BlendMode.srcIn,
@@ -108,8 +129,8 @@ class _MainViewState extends State<MainView> {
               children: [
                 SvgPicture.asset(
                   "assets/icons/Bag.svg",
-                  width: 24,
-                  height: 24,
+                  width: 20,
+                  height: 20,
                   colorFilter: ColorFilter.mode(
                     context.primary,
                     BlendMode.srcIn,
@@ -129,30 +150,9 @@ class _MainViewState extends State<MainView> {
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              "assets/icons/Chart.svg",
-              width: 24,
-              height: 24,
-              colorFilter: ColorFilter.mode(
-                context.secondary,
-                BlendMode.srcIn,
-              ),
-            ),
-            activeIcon: SvgPicture.asset(
-              "assets/icons/Chart.svg",
-              width: 24,
-              height: 24,
-              colorFilter: ColorFilter.mode(
-                context.primary,
-                BlendMode.srcIn,
-              ),
-            ),
-            label: 'Stats',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
               "assets/icons/Profile.svg",
-              width: 24,
-              height: 24,
+              width: 20,
+              height: 20,
               colorFilter: ColorFilter.mode(
                 context.secondary,
                 BlendMode.srcIn,
@@ -160,8 +160,8 @@ class _MainViewState extends State<MainView> {
             ),
             activeIcon: SvgPicture.asset(
               "assets/icons/Profile.svg",
-              width: 24,
-              height: 24,
+              width: 20,
+              height: 20,
               colorFilter: ColorFilter.mode(
                 context.primary,
                 BlendMode.srcIn,
@@ -177,8 +177,8 @@ class _MainViewState extends State<MainView> {
         onTap: _onItemTapped,
         type: BottomNavigationBarType.fixed,
         backgroundColor: context.onPrimary,
-        selectedFontSize: 12,
-        unselectedFontSize: 12,
+        selectedFontSize: 10,
+        unselectedFontSize: 10,
       ),
     );
   }

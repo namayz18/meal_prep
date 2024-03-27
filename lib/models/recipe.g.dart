@@ -31,20 +31,16 @@ Recipe _$RecipeFromJson(Map<String, dynamic> json) => Recipe(
       id: json['id'] as String,
       name: json['name'] as String,
       description: json['description'] as String,
+      category: json['category'] as String,
       duration: json['duration'] as String,
-      serving: json['serving'] as String,
       calories: json['calories'] as String,
-      image: json['image'] as String,
+      imageUrl: json['imageUrl'] as String,
       ingredients: (json['ingredients'] as List<dynamic>?)
               ?.map((e) => Ingredient.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
       nutritions: (json['nutritions'] as List<dynamic>?)
               ?.map((e) => Nutrition.fromJson(e as Map<String, dynamic>))
-              .toList() ??
-          const [],
-      categories: (json['categories'] as List<dynamic>?)
-              ?.map((e) => e as String)
               .toList() ??
           const [],
       types:
@@ -59,13 +55,12 @@ Map<String, dynamic> _$RecipeToJson(Recipe instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'description': instance.description,
+      'category': instance.category,
       'duration': instance.duration,
-      'serving': instance.serving,
       'calories': instance.calories,
-      'image': instance.image,
-      'ingredients': instance.ingredients,
-      'nutritions': instance.nutritions,
-      'categories': instance.categories,
+      'imageUrl': instance.imageUrl,
+      'ingredients': instance.ingredients.map((e) => e.toJson()).toList(),
+      'nutritions': instance.nutritions.map((e) => e.toJson()).toList(),
       'types': instance.types,
       'steps': instance.steps,
     };

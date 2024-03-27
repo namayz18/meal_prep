@@ -19,6 +19,10 @@ class AdminController {
     await recipeService.addRecipe(recipe);
   }
 
+  addBulkRecipe(List<Recipe> recipes) async {
+    await recipeService.addBulkRecipe(recipes);
+  }
+
   updateRecipe(String id, Recipe recipe) async {
     await recipeService.updateRecipe(id, recipe);
   }

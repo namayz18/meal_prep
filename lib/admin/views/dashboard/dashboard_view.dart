@@ -69,7 +69,9 @@ class _DashboardViewState extends State<DashboardView> {
                     Expanded(
                       child: Column(
                         children: [
-                          const TitleView(),
+                          TitleView(
+                            adminController: widget.adminController,
+                          ),
                           const SizedBox(height: 16.0),
                           futureRecipeListView(
                             context,

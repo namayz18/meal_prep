@@ -148,7 +148,7 @@ Widget latestRecipeWidget(BuildContext context, RecipeController controller) {
           final latestRecipes = snapshot.data ?? [];
           return ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: latestRecipes.length,
+            itemCount: latestRecipes.length > 5 ? 5 : latestRecipes.length,
             itemBuilder: (context, index) {
               return Padding(
                 padding: index == 0

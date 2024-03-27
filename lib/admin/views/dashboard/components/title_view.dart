@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:meal_prep/admin/controllers/admin_controller.dart';
 import 'package:meal_prep/core/extensions/text_styles.dart';
 
 class TitleView extends StatelessWidget {
+  final AdminController adminController;
   const TitleView({
     Key? key,
+    required this.adminController,
   }) : super(key: key);
 
   @override

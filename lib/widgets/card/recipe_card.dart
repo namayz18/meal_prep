@@ -4,11 +4,12 @@ import 'package:meal_prep/core/constants/color.dart';
 import 'package:meal_prep/core/extensions/text_styles.dart';
 import 'package:meal_prep/core/extensions/theme_colors.dart';
 import 'package:meal_prep/models/recipe.dart';
+import 'package:meal_prep/widgets/widget/custom_network_image.dart';
 
 class RecipeCard extends StatelessWidget {
   final Recipe recipe;
-  void Function() onTap;
-  RecipeCard({Key? key, required this.recipe, required this.onTap})
+  final void Function() onTap;
+  const RecipeCard({Key? key, required this.recipe, required this.onTap})
       : super(key: key);
 
   @override
@@ -36,14 +37,7 @@ class RecipeCard extends StatelessWidget {
                 child: Stack(
                   alignment: Alignment.bottomRight,
                   children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: NetworkImage(recipe.image),
-                        ),
-                      ),
-                    ),
+                    CustomNetworkImage(imageUrl: recipe.imageUrl),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(

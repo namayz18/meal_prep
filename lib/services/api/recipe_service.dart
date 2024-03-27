@@ -21,7 +21,11 @@ class RecipeService {
   }
 
   Future<void> addRecipe(Recipe recipe) async {
-    await firestoreService.addDocument(collectionName, recipe.toJson());
+    await firestoreService.addDocumentWithId(
+      recipe.id,
+      collectionName,
+      recipe.toJson(),
+    );
     return;
   }
 
@@ -32,6 +36,13 @@ class RecipeService {
 
   Future<void> deleteRecipe(String id) async {
     await firestoreService.deleteDocument(collectionName, id);
+    return;
+  }
+
+  Future<void> addBulkRecipe(List<Recipe> recipes) async {
+    for (var recipe in recipes) {
+      await addRecipe(recipe);
+    }
     return;
   }
 }

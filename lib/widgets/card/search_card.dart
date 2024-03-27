@@ -35,7 +35,7 @@ class SearchCard extends StatelessWidget {
                   shape: BoxShape.circle,
                   image: DecorationImage(
                     fit: BoxFit.cover,
-                    image: NetworkImage(meal.recipe.image),
+                    image: NetworkImage(meal.recipe.imageUrl),
                   ),
                 ),
               ),

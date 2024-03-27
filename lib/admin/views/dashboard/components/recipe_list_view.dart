@@ -69,7 +69,7 @@ DataRow recipeDataRow(
         maxLines: 1,
       )),
       DataCell(Text(
-        recipe.categories.join(', '),
+        recipe.category,
         style: context.description,
         maxLines: 1,
       )),

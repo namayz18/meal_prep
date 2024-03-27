@@ -35,7 +35,7 @@ class _RecipeViewState extends State<RecipeView> {
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: NetworkImage(
-                          recipe.image,
+                          recipe.imageUrl,
                         ),
                         fit: BoxFit.cover,
                       ),
@@ -54,14 +54,6 @@ class _RecipeViewState extends State<RecipeView> {
                       ),
                     ],
                   ),
-                  recipe.categories.isEmpty
-                      ? const SizedBox()
-                      : Column(
-                          children: [
-                            getKeywordItem(context, recipe.categories),
-                            const SizedBox(height: 16),
-                          ],
-                        ),
                   Column(
                     children: [
                       Padding(
