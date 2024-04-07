@@ -10,6 +10,7 @@ import 'package:meal_prep/views/recipe/recipe_view.dart';
 import 'package:meal_prep/views/search/search_view.dart';
 import 'package:meal_prep/widgets/card/recipe_card.dart';
 import 'package:meal_prep/widgets/card/saved_card.dart';
+import 'package:meal_prep/widgets/text/custom_app_bar_text.dart';
 import 'package:meal_prep/widgets/text/custom_heading_text.dart';
 
 class ExploreView extends StatefulWidget {
@@ -51,7 +52,7 @@ class _ExploreViewState extends State<ExploreView> {
             const SizedBox(height: 16),
             Row(
               children: [
-                const CustomHeadingText(title: 'Meal Prep Ideas'),
+                const CustomAppBarText(title: 'Meal Prep Ideas'),
                 const Spacer(),
                 Row(
                   children: [
