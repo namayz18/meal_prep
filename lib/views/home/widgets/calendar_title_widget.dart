@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:meal_prep/core/extensions/theme_colors.dart';
+import 'package:meal_prep/widgets/button/custom_text_button.dart';
 import 'package:meal_prep/widgets/text/custom_heading_text.dart';
 
 class CalendarTitleWidget extends StatelessWidget {
@@ -46,20 +47,9 @@ class CalendarTitleWidget extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          GestureDetector(
-            onTap: onPressCalendar,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: SvgPicture.asset(
-                "assets/icons/calender.svg",
-                width: 24,
-                height: 24,
-                colorFilter: ColorFilter.mode(
-                  context.buttonColor,
-                  BlendMode.srcIn,
-                ),
-              ),
-            ),
+          CustomTextButton(
+            title: 'Today',
+            onPress: onPressCalendar,
           ),
         ],
       ),
