@@ -2,7 +2,6 @@ import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/material.dart';
 import 'package:meal_prep/views/home/controller/home_view_controller.dart';
 import 'package:meal_prep/views/home/view/home_meal_category_view.dart';
-import 'package:meal_prep/views/home/widgets/add_meal_widget.dart';
 import 'package:meal_prep/views/home/widgets/calendar_title_widget.dart';
 import 'package:meal_prep/views/home/widgets/home_stats_widget.dart';
 import 'package:meal_prep/widgets/widget/calendar_week_widget.dart';
@@ -40,10 +39,7 @@ class HomeDayView extends StatelessWidget {
           controller: dateTimelineController,
         ),
         const SizedBox(height: 16),
-        const SizedBox(height: 16),
         const HomeStatsWidget(),
-        const SizedBox(height: 16),
-        AddMealWidget(controller: controller),
         const SizedBox(height: 16),
         HomeMealCategoryView(controller: controller),
         const SizedBox(height: 80),

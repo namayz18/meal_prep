@@ -14,7 +14,7 @@ class CustomDisplayText extends StatelessWidget {
           Text(
             title,
             textAlign: TextAlign.start,
-            style: context.heading,
+            style: context.display,
           ),
         ],
       ),

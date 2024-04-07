@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:meal_prep/core/extensions/text_styles.dart';
 import 'package:meal_prep/core/extensions/theme_colors.dart';
-import 'package:meal_prep/views/home/controller/home_view_controller.dart';
 import 'package:meal_prep/widgets/button/custom_icon_text_button.dart';
 
 class AddMealWidget extends StatelessWidget {
-  final HomeViewController controller;
-  const AddMealWidget({
-    Key? key,
-    required this.controller,
-  }) : super(key: key);
+  const AddMealWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

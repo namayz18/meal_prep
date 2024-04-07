@@ -18,6 +18,7 @@ class AppTheme {
           onPrimary: AppColors.kWhite,
           secondary: AppColors.kGrey,
           onSecondary: AppColors.kLightGrey,
+          tertiary: AppColors.kBlack,
         ),
         textTheme: AppTextTheme.light,
       );
@@ -37,6 +38,7 @@ class AppTheme {
           onPrimary: AppColors.kDarkBlueAccent,
           secondary: AppColors.kWhite,
           onSecondary: AppColors.kWhite,
+          tertiary: AppColors.kWhite,
         ),
         textTheme: AppTextTheme.dark,
       );

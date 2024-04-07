@@ -9,7 +9,7 @@ import 'package:meal_prep/views/explore/widget/category_card.dart';
 import 'package:meal_prep/views/recipe/recipe_view.dart';
 import 'package:meal_prep/views/search/search_view.dart';
 import 'package:meal_prep/widgets/card/recipe_card.dart';
-import 'package:meal_prep/views/explore/widget/saved_card.dart';
+import 'package:meal_prep/widgets/card/saved_card.dart';
 import 'package:meal_prep/widgets/text/custom_heading_text.dart';
 
 class ExploreView extends StatefulWidget {
@@ -126,6 +126,16 @@ class _ExploreViewState extends State<ExploreView> {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton.small(
+        heroTag: "btn3",
+        onPressed: () {},
+        backgroundColor: context.primary,
+        foregroundColor: context.onPrimary,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(60),
+        ),
+        child: const Icon(Icons.add),
       ),
     );
   }

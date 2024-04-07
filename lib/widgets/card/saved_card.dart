@@ -15,7 +15,7 @@ class SavedCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: context.onPrimary,
           border: Border.all(
-            color: context.secondary.withOpacity(0.1),
+            color: context.border,
           ),
           borderRadius: const BorderRadius.all(
             Radius.circular(10),

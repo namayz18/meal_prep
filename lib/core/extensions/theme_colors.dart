@@ -24,5 +24,5 @@ extension BuildContextEntension<T> on BuildContext {
 
   Color get border => Theme.of(this).colorScheme.secondary.withOpacity(0.1);
 
-  Color get buttonColor => Theme.of(this).colorScheme.secondary;
+  Color get buttonColor => Theme.of(this).colorScheme.tertiary;
 }

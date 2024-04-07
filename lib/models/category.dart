@@ -33,10 +33,10 @@ var categoryData = [
   {"id": "2", "name": "Lunch", "image": "beef.jpeg"},
   {"id": "3", "name": "Dinner", "image": "chicken.jpg"},
   {"id": "4", "name": "Snacks", "image": "noheat.jpg"},
-  {"id": "5", "name": "Vegetarian", "image": "vege.jpg"},
-  {"id": "6", "name": "Vegan", "image": "pork.jpg"},
-  {"id": "7", "name": "Low Carb", "image": "chicken.jpg"},
-  {"id": "8", "name": "High Protein", "image": "pork.jpg"},
-  {"id": "9", "name": "Low Budget", "image": "beef.jpeg"},
-  {"id": "10", "name": "Quick & Easy", "image": "breaki.jpg"}
+  // {"id": "5", "name": "Vegetarian", "image": "vege.jpg"},
+  // {"id": "6", "name": "Vegan", "image": "pork.jpg"},
+  // {"id": "7", "name": "Low Carb", "image": "chicken.jpg"},
+  // {"id": "8", "name": "High Protein", "image": "pork.jpg"},
+  // {"id": "9", "name": "Low Budget", "image": "beef.jpeg"},
+  // {"id": "10", "name": "Quick & Easy", "image": "breaki.jpg"}
 ];

@@ -33,7 +33,7 @@ class CustomNetworkImage extends StatelessWidget {
             (BuildContext context, Object error, StackTrace? stackTrace) {
           // Error occurred while loading image, show default image
           return Image.asset(
-            'assets/images/placeholder.jpeg',
+            'assets/images/placeholder.jpg',
             fit: BoxFit.cover,
           ); // Provide path to your default image
         },

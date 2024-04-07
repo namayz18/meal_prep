@@ -25,11 +25,11 @@ class CalendarMonthWidget extends StatelessWidget {
         formatButtonVisible: false,
         leftChevronIcon: Icon(
           Icons.chevron_left,
-          color: context.secondary,
+          color: context.buttonColor,
         ),
         rightChevronIcon: Icon(
           Icons.chevron_right,
-          color: context.secondary,
+          color: context.buttonColor,
         ),
       ),
       calendarStyle: CalendarStyle(

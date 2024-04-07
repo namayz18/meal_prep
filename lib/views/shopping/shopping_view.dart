@@ -24,7 +24,6 @@ class _ShoppingViewState extends State<ShoppingView> {
       body: SafeArea(
         child: Column(
           children: [
-            const SizedBox(height: 16),
             Row(
               children: [
                 const CustomHeadingText(title: 'My Shopping List'),
@@ -77,7 +76,7 @@ Widget allIngredientsListWidget(BuildContext context) {
       decoration: BoxDecoration(
         color: context.onPrimary,
         border: Border.all(
-          color: context.secondary.withOpacity(0.1),
+          color: context.border,
         ),
         borderRadius: const BorderRadius.all(
           Radius.circular(10),
@@ -95,7 +94,7 @@ Widget allIngredientsListWidget(BuildContext context) {
               decoration: BoxDecoration(
                 color: context.primary.withOpacity(0.1),
                 border: Border.all(
-                  color: context.secondary.withOpacity(0.1),
+                  color: context.border,
                 ),
                 borderRadius: const BorderRadius.all(
                   Radius.circular(10),

@@ -28,7 +28,7 @@ Widget editRecipeView(
                     height: 30,
                     'assets/icons/Arrow_Left.svg',
                     colorFilter: ColorFilter.mode(
-                      context.secondary,
+                      context.buttonColor,
                       BlendMode.srcIn,
                     ),
                   ),

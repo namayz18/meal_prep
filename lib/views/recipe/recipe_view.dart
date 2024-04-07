@@ -5,9 +5,9 @@ import 'package:meal_prep/core/extensions/text_styles.dart';
 import 'package:meal_prep/core/extensions/theme_colors.dart';
 import 'package:meal_prep/models/recipe.dart';
 import 'package:meal_prep/widgets/button/custom_button.dart';
-import 'package:meal_prep/widgets/button/custom_icon_button.dart';
 import 'package:meal_prep/widgets/text/custom_heading_text.dart';
 import 'package:meal_prep/widgets/text/custom_sub_heading_text.dart';
+import 'package:meal_prep/widgets/widget/custom_network_image.dart';
 
 class RecipeView extends StatefulWidget {
   final Recipe recipe;
@@ -22,125 +22,121 @@ class _RecipeViewState extends State<RecipeView> {
   Widget build(BuildContext context) {
     Recipe recipe = widget.recipe;
     return Scaffold(
-      body: Stack(
+      body: ListView(
+        padding: EdgeInsets.zero,
         children: [
-          ListView(
-            padding: EdgeInsets.zero,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              Stack(
                 children: [
-                  Container(
+                  SizedBox(
                     height: context.height * 0.5,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: NetworkImage(
-                          recipe.imageUrl,
-                        ),
-                        fit: BoxFit.cover,
-                      ),
+                    child: CustomNetworkImage(
+                      imageUrl: recipe.imageUrl,
                     ),
                   ),
-                  Row(
-                    children: [
-                      CustomHeadingText(title: recipe.name),
-                      const Spacer(),
-                      IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.favorite_border,
-                          color: context.secondary,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                        child: Row(
-                          children: [
-                            SvgPicture.asset(
-                              "assets/icons/watch.svg",
-                              width: 18,
-                              height: 18,
-                              colorFilter: ColorFilter.mode(
-                                context.primary,
-                                BlendMode.srcIn,
-                              ),
-                            ),
-                            const SizedBox(width: 8),
-                            Text(
-                              recipe.duration,
-                              style: context.description,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 30),
-                  CustomButton(title: 'Add To Meal Plan', onPress: () {}),
-                  const SizedBox(height: 30),
-                  const CustomSubHeadingText(title: 'Nutrition per portion'),
-                  const SizedBox(height: 16),
-                  nutritionWidget(context, recipe.nutritions),
-                  const SizedBox(height: 30),
-                  const CustomSubHeadingText(title: 'Ingredients'),
-                  const SizedBox(height: 16),
-                  nutritionWidget(context, recipe.ingredients),
-                  const SizedBox(height: 30),
-                  const CustomSubHeadingText(title: 'How to make'),
-                  const SizedBox(height: 16),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: ListView.builder(
-                      padding: EdgeInsets.zero,
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: recipe.steps.length,
-                      itemBuilder: (context, index) {
-                        final step = recipe.steps[index];
-                        return Column(
-                          children: [
-                            Text(
-                              step,
-                              style: context.description,
-                            ),
-                            const SizedBox(height: 16.0),
-                          ],
-                        );
-                      },
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16.0, vertical: 8.0),
+                    child: SafeArea(
+                      child: GestureDetector(
+                        onTap: () => Navigator.pop(context),
+                        child: Container(
+                          padding: const EdgeInsets.all(8.0),
+                          decoration: BoxDecoration(
+                            color: context.buttonColor,
+                            shape: BoxShape.circle,
+                          ),
+                          child: SvgPicture.asset('assets/icons/Arrow_Left.svg',
+                              width: 24,
+                              height: 24,
+                              colorFilter: ColorFilter.mode(
+                                context.onPrimary,
+                                BlendMode.srcIn,
+                              )),
+                        ),
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 30),
+                  )
                 ],
               ),
-            ],
-          ),
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-            child: Row(
-              children: [
-                SafeArea(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: context.primary.withOpacity(0.5),
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(5.0),
-                      ),
-                    ),
-                    child: CustomIconButton(
-                      icon: 'assets/icons/Arrow_Left.svg',
-                      onPress: () => Navigator.pop(context),
-                      color: Colors.white,
+              Row(
+                children: [
+                  CustomHeadingText(title: recipe.name),
+                  const Spacer(),
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.favorite_border,
+                      color: Colors.black,
                     ),
                   ),
+                ],
+              ),
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Row(
+                      children: [
+                        SvgPicture.asset(
+                          "assets/icons/watch.svg",
+                          width: 18,
+                          height: 18,
+                          colorFilter: ColorFilter.mode(
+                            context.primary,
+                            BlendMode.srcIn,
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        Text(
+                          recipe.duration,
+                          style: context.description,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 30),
+              CustomButton(title: 'Add To Meal Plan', onPress: () {}),
+              const SizedBox(height: 30),
+              const CustomSubHeadingText(title: 'Nutrition per portion'),
+              const SizedBox(height: 16),
+              nutritionWidget(context, recipe.nutritions),
+              const SizedBox(height: 30),
+              const CustomSubHeadingText(title: 'Ingredients'),
+              const SizedBox(height: 16),
+              nutritionWidget(context, recipe.ingredients),
+              const SizedBox(height: 30),
+              const CustomSubHeadingText(title: 'How to make'),
+              const SizedBox(height: 16),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: ListView.builder(
+                  padding: EdgeInsets.zero,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: recipe.steps.length,
+                  itemBuilder: (context, index) {
+                    final step = recipe.steps[index];
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          step,
+                          style: context.description,
+                        ),
+                        const SizedBox(height: 16.0),
+                      ],
+                    );
+                  },
                 ),
-              ],
-            ),
-          )
+              ),
+              const SizedBox(height: 30),
+            ],
+          ),
         ],
       ),
     );

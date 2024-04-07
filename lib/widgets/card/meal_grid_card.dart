@@ -57,7 +57,7 @@ class MealGridCard extends StatelessWidget {
                 const SizedBox(height: 8),
                 Container(
                   decoration: BoxDecoration(
-                    color: context.secondary.withOpacity(0.1),
+                    color: context.border,
                     borderRadius: const BorderRadius.all(
                       Radius.circular(10),
                     ),
