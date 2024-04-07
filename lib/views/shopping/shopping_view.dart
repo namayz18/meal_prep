@@ -17,7 +17,6 @@ class ShoppingView extends StatefulWidget {
 }
 
 class _ShoppingViewState extends State<ShoppingView> {
-  final ShoppingController _controller = ShoppingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

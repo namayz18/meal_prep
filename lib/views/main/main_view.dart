@@ -31,7 +31,6 @@ class _MainViewState extends State<MainView> {
         children: const [
           HomeView(),
           MealView(),
-          ExploreView(),
           ShoppingView(),
           ProfileView(),
         ],
@@ -61,7 +60,7 @@ class _MainViewState extends State<MainView> {
           ),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
-              "assets/icons/Magnifier.svg",
+              "assets/icons/Spoon.svg",
               width: 20,
               height: 20,
               colorFilter: ColorFilter.mode(
@@ -70,7 +69,7 @@ class _MainViewState extends State<MainView> {
               ),
             ),
             activeIcon: SvgPicture.asset(
-              "assets/icons/Magnifier.svg",
+              "assets/icons/Spoon.svg",
               width: 20,
               height: 20,
               colorFilter: ColorFilter.mode(
@@ -79,27 +78,6 @@ class _MainViewState extends State<MainView> {
               ),
             ),
             label: 'Meal Plans',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              "assets/icons/Spoon.svg",
-              width: 20,
-              height: 20,
-              colorFilter: ColorFilter.mode(
-                context.secondary,
-                BlendMode.srcIn,
-              ),
-            ),
-            activeIcon: SvgPicture.asset(
-              "assets/icons/Spoon.svg",
-              width: 20,
-              height: 20,
-              colorFilter: ColorFilter.mode(
-                context.primary,
-                BlendMode.srcIn,
-              ),
-            ),
-            label: 'Recipes',
           ),
           BottomNavigationBarItem(
             icon: Stack(
