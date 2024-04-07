@@ -1,6 +1,5 @@
 import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/material.dart';
-import 'package:meal_prep/core/extensions/theme_colors.dart';
 import 'package:meal_prep/views/home/controller/home_view_controller.dart';
 import 'package:meal_prep/views/home/view/home_day_view.dart';
 

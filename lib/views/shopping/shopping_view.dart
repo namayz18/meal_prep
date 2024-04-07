@@ -7,7 +7,7 @@ import 'package:meal_prep/views/shopping/controller/shopping_controller.dart';
 import 'package:meal_prep/widgets/button/custom_icon_text_button.dart';
 import 'package:meal_prep/widgets/button/custom_text_button.dart';
 import 'package:meal_prep/widgets/card/meal_tile_card.dart';
-import 'package:meal_prep/widgets/text/custom_heading_text.dart';
+import 'package:meal_prep/widgets/text/custom_app_bar_text.dart';
 
 class ShoppingView extends StatefulWidget {
   const ShoppingView({Key? key}) : super(key: key);
@@ -26,7 +26,7 @@ class _ShoppingViewState extends State<ShoppingView> {
           children: [
             Row(
               children: [
-                const CustomHeadingText(title: 'My Shopping List'),
+                const CustomAppBarText(title: 'My Shopping List'),
                 const Spacer(),
                 CustomTextButton(title: 'Edit', onPress: () {}),
               ],

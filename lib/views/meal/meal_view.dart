@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:meal_prep/core/extensions/text_styles.dart';
 import 'package:meal_prep/core/extensions/theme_colors.dart';
 import 'package:meal_prep/widgets/button/custom_text_button.dart';
-import 'package:meal_prep/widgets/text/custom_heading_text.dart';
+import 'package:meal_prep/widgets/text/custom_app_bar_text.dart';
 
 class MealView extends StatefulWidget {
   const MealView({Key? key}) : super(key: key);
@@ -15,31 +15,39 @@ class _MealViewState extends State<MealView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        children: [
-          const Row(
-            children: [
-              CustomHeadingText(title: 'Meal Plans'),
-              Spacer(),
-              CustomTextButton(title: 'Create')
-            ],
-          ),
-          const SizedBox(height: 16),
-          mealView(
-            context,
-            'assets/images/meal1.jpg',
-          ),
-          const SizedBox(height: 16),
-          mealView(
-            context,
-            'assets/images/meal2.jpg',
-          ),
-          const SizedBox(height: 16),
-          mealView(
-            context,
-            'assets/images/meal3.jpg',
-          )
-        ],
+      body: SafeArea(
+        child: Column(
+          children: [
+            const Row(
+              children: [
+                CustomAppBarText(title: 'Meal Plans'),
+                Spacer(),
+                CustomTextButton(title: 'Create')
+              ],
+            ),
+            Expanded(
+              child: ListView(
+                children: [
+                  const SizedBox(height: 16),
+                  mealView(
+                    context,
+                    'assets/images/meal1.jpg',
+                  ),
+                  const SizedBox(height: 16),
+                  mealView(
+                    context,
+                    'assets/images/meal2.jpg',
+                  ),
+                  const SizedBox(height: 16),
+                  mealView(
+                    context,
+                    'assets/images/meal3.jpg',
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton.small(
         heroTag: "btn2",

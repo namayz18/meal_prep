@@ -4,7 +4,6 @@ import 'package:meal_prep/views/home/controller/home_view_controller.dart';
 import 'package:meal_prep/views/home/view/home_meal_category_view.dart';
 import 'package:meal_prep/views/home/widgets/calendar_title_widget.dart';
 import 'package:meal_prep/views/home/widgets/home_stats_widget.dart';
-import 'package:meal_prep/widgets/text/custom_heading_text.dart';
 import 'package:meal_prep/widgets/widget/calendar_week_widget.dart';
 
 class HomeDayView extends StatelessWidget {
@@ -30,8 +29,11 @@ class HomeDayView extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const CustomHeadingText(title: 'My Meals'),
-        const SizedBox(height: 16),
+        CalendarTitleWidget(
+          title: calendarTitle,
+          onPressCalendar: onPressCalendar,
+        ),
+        const SizedBox(height: 8.0),
         Expanded(
           child: ListView(
             children: [
