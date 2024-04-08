@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:meal_prep/core/extensions/theme_colors.dart';
-import 'package:meal_prep/views/explore/explore_view.dart';
 import 'package:meal_prep/views/home/home_view.dart';
 import 'package:meal_prep/views/meal/meal_view.dart';
 import 'package:meal_prep/views/profile/profile_view.dart';

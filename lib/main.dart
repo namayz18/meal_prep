@@ -5,7 +5,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:meal_prep/admin/admin_view.dart';
 import 'package:meal_prep/core/config/firebase_options.dart';
 import 'package:meal_prep/core/themes/app_theme.dart';
-import 'package:meal_prep/views/main/main_view.dart';
+import 'package:meal_prep/views/welcome/welcome_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
-      home: kIsWeb ? const AdminView() : const MainView(),
+      home: kIsWeb ? const AdminView() : const WelcomeView(),
     );
   }
 }
