@@ -54,7 +54,8 @@ class _MealViewState extends State<MealView> {
                   mealView(
                     context,
                     'assets/images/meal3.jpg',
-                  )
+                  ),
+                  const SizedBox(height: 30),
                 ],
               ),
             ),

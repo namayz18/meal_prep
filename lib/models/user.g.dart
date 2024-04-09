@@ -42,11 +42,15 @@ Map<String, dynamic> _$ShoppingListToJson(ShoppingList instance) =>
 
 User _$UserFromJson(Map<String, dynamic> json) => User(
       id: json['id'] as String,
-      account: Account.fromJson(json['account'] as Map<String, dynamic>),
+      firstName: json['firstName'] as String,
+      lastName: json['lastName'] as String,
+      imageUrl: json['imageUrl'] as String,
+      email: json['email'] as String,
       isLoggedIn: json['isLoggedIn'] as bool,
+      gender: json['gender'] as String,
       age: json['age'] as int,
-      height: (json['height'] as num).toDouble(),
-      weight: (json['weight'] as num).toDouble(),
+      height: json['height'] as int,
+      weight: json['weight'] as int,
       meals: (json['meals'] as List<dynamic>)
           .map((e) => Meal.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -59,12 +63,17 @@ User _$UserFromJson(Map<String, dynamic> json) => User(
       shoppingList: (json['shoppingList'] as List<dynamic>)
           .map((e) => ShoppingList.fromJson(e as Map<String, dynamic>))
           .toList(),
+      joinedAt: DateTime.parse(json['joinedAt'] as String),
     );
 
 Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'id': instance.id,
-      'account': instance.account,
+      'firstName': instance.firstName,
+      'lastName': instance.lastName,
+      'imageUrl': instance.imageUrl,
+      'email': instance.email,
       'isLoggedIn': instance.isLoggedIn,
+      'gender': instance.gender,
       'age': instance.age,
       'height': instance.height,
       'weight': instance.weight,
@@ -72,4 +81,5 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'favoriteMeals': instance.favoriteMeals,
       'personalRecipes': instance.personalRecipes,
       'shoppingList': instance.shoppingList,
+      'joinedAt': instance.joinedAt.toIso8601String(),
     };

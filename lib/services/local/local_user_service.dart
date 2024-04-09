@@ -1,5 +1,4 @@
 import 'package:meal_prep/core/database/local_entity.dart';
-import 'package:meal_prep/models/account.dart';
 import 'package:meal_prep/models/meal.dart';
 import 'package:meal_prep/models/user.dart';
 
@@ -34,30 +33,7 @@ class LocalUserService {
     }
   }
 
-  onPressLogin() {
-    var user = User(
-      id: "1",
-      account: Account(
-        id: "1",
-        firstName: "John",
-        lastName: "Doe",
-        imageUrl: "assets/images/profile.jpg",
-        email: "",
-      ),
-      isLoggedIn: true,
-      age: 25,
-      height: 180,
-      weight: 70,
-      meals: [],
-      favoriteMeals: [],
-      personalRecipes: [],
-      shoppingList: [],
-    );
-
-    saveUser(user);
-  }
-
-  onPressSignOut() {
+  deleteUser() {
     var user = getUserDetail();
     if (user != null) {
       userRepo.deleteData(user.id);

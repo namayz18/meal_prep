@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meal_prep/core/database/local_entity.dart';
-import 'package:meal_prep/models/account.dart';
 import 'package:meal_prep/models/meal.dart';
 import 'package:meal_prep/models/recipe.dart';
 
@@ -58,20 +57,29 @@ class ShoppingList {
 @JsonSerializable()
 class User implements LocalEntity {
   final String id;
-  final Account account;
+  final String firstName;
+  final String lastName;
+  final String imageUrl;
+  final String email;
   final bool isLoggedIn;
+  final String gender;
   final int age;
-  final double height;
-  final double weight;
+  final int height;
+  final int weight;
   final List<Meal> meals;
   final List<FavoriteMeal> favoriteMeals;
   final List<PersonalRecipe> personalRecipes;
   final List<ShoppingList> shoppingList;
+  final DateTime joinedAt;
 
   const User({
     required this.id,
-    required this.account,
+    required this.firstName,
+    required this.lastName,
+    required this.imageUrl,
+    required this.email,
     required this.isLoggedIn,
+    required this.gender,
     required this.age,
     required this.height,
     required this.weight,
@@ -79,6 +87,7 @@ class User implements LocalEntity {
     required this.favoriteMeals,
     required this.personalRecipes,
     required this.shoppingList,
+    required this.joinedAt,
   });
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);

@@ -16,9 +16,9 @@ class AccountWidget extends StatelessWidget {
             padding: const EdgeInsets.all(16.0),
             width: 50,
             height: 50,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(user.account.imageUrl),
+                image: AssetImage("assets/images/profile.jpg"),
                 fit: BoxFit.contain,
               ),
               shape: BoxShape.circle,
@@ -30,15 +30,15 @@ class AccountWidget extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Text(
-                  '${user.account.firstName} ${user.account.lastName}',
+                  '${user.firstName} ${user.lastName}',
                   style: context.heading,
                 ),
               ),
               const SizedBox(height: 4),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Text('Member joined 2 Jan 2021',
-                    style: context.description),
+                child:
+                    Text(user.joinedAt.toString(), style: context.description),
               ),
             ],
           ),

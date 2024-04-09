@@ -15,7 +15,7 @@ class CustomTitleText extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Text(
         title,
-        textAlign: TextAlign.start,
+        textAlign: TextAlign.center,
         style: context.title,
       ),
     );
