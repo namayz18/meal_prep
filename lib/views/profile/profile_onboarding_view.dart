@@ -35,6 +35,7 @@ class _ProfileOnboardingViewState extends State<ProfileOnboardingView> {
     _SettingType.height,
     _SettingType.weight
   ];
+  late double _progress;
 
   @override
   void initState() {
@@ -44,6 +45,7 @@ class _ProfileOnboardingViewState extends State<ProfileOnboardingView> {
     _selectedAge = 0;
     _selectedHeight = 150;
     _selectedWeight = 60;
+    _progress = 0.25;
     final currentDate = DateTime.now();
     _minDate = DateTime(
       currentDate.year - 100,
@@ -108,6 +110,7 @@ class _ProfileOnboardingViewState extends State<ProfileOnboardingView> {
       return;
     }
     setState(() {
+      _progress += 0.25;
       _selectedType = types[types.indexOf(_selectedType) + 1];
     });
   }
@@ -178,9 +181,13 @@ class _ProfileOnboardingViewState extends State<ProfileOnboardingView> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          navBar(context, () {
-            onSkip(context);
-          }),
+          navBar(
+            context,
+            () {
+              onSkip(context);
+            },
+            _progress,
+          ),
           settingTypeView(context, _selectedType),
         ],
       ),
@@ -188,7 +195,8 @@ class _ProfileOnboardingViewState extends State<ProfileOnboardingView> {
   }
 }
 
-Widget navBar(BuildContext context, void Function()? onPressedNext) {
+Widget navBar(
+    BuildContext context, void Function()? onPressedNext, double progress) {
   return Row(
     children: [
       Padding(
@@ -214,7 +222,7 @@ Widget navBar(BuildContext context, void Function()? onPressedNext) {
       Expanded(
         child: LinearPercentIndicator(
           lineHeight: 8.0,
-          percent: 0.25,
+          percent: progress,
           backgroundColor: context.border,
           progressColor: context.primary,
           barRadius: const Radius.circular(5),

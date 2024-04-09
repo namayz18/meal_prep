@@ -4,7 +4,6 @@ import 'package:meal_prep/views/profile/widgets/account_widget.dart';
 import 'package:meal_prep/views/profile/widgets/support_widget.dart';
 import 'package:meal_prep/views/profile/widgets/profile_widget.dart';
 import 'package:meal_prep/views/profile/widgets/settings_widget.dart';
-import 'package:meal_prep/widgets/button/custom_button.dart';
 import 'package:meal_prep/widgets/text/custom_heading_text.dart';
 
 class ProfileView extends StatefulWidget {
