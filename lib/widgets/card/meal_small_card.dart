@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:meal_prep/core/extensions/text_styles.dart';
 import 'package:meal_prep/core/extensions/theme_colors.dart';
-import 'package:meal_prep/models/meal.dart';
+import 'package:meal_prep/models/recipe.dart';
+import 'package:meal_prep/widgets/widget/custom_network_image.dart';
 
 enum CardType { meal, recipe }
 
 class MealSmallCard extends StatelessWidget {
-  final Meal meal;
+  final Recipe recipe;
   final CardType? type;
 
   const MealSmallCard({
     Key? key,
-    required this.meal,
+    required this.recipe,
     this.type = CardType.meal,
   }) : super(key: key);
 
@@ -29,21 +30,19 @@ class MealSmallCard extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(16.0),
         child: Row(
           children: [
             Container(
               height: 80,
               width: 80,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: NetworkImage(meal.recipe.imageUrl),
-                ),
               ),
+              clipBehavior: Clip.hardEdge,
+              child: CustomNetworkImage(imageUrl: recipe.imageUrl),
             ),
-            const SizedBox(width: 8),
+            const SizedBox(width: 16),
             Expanded(
               child: Column(
                 children: [
@@ -56,16 +55,16 @@ class MealSmallCard extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              meal.recipe.name,
+                              recipe.name,
                               textAlign: TextAlign.start,
                               style: context.title,
                             ),
-                            const SizedBox(height: 2),
+                            const SizedBox(height: 1),
                             Text(
-                              meal.recipe.description,
+                              recipe.description,
                               textAlign: TextAlign.start,
                               style: context.description,
-                              maxLines: 2,
+                              maxLines: 1,
                             ),
                             const SizedBox(height: 8),
                           ],
@@ -103,7 +102,7 @@ class MealSmallCard extends StatelessWidget {
                               ),
                               const SizedBox(width: 4),
                               Text(
-                                meal.recipe.duration,
+                                recipe.duration,
                                 textAlign: TextAlign.start,
                                 style: context.smallDescription,
                               ),
@@ -123,7 +122,7 @@ class MealSmallCard extends StatelessWidget {
                               ),
                               const SizedBox(width: 4),
                               Text(
-                                meal.recipe.calories,
+                                "${recipe.calories} kcal",
                                 textAlign: TextAlign.start,
                                 style: context.smallDescription,
                               ),

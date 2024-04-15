@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:meal_prep/models/meal.dart';
+import 'package:meal_prep/models/recipe.dart';
 import 'package:meal_prep/widgets/card/meal_small_card.dart';
 import 'package:meal_prep/widgets/text/custom_heading_text.dart';
 
 class MealWidget extends StatelessWidget {
   final String title;
+  final List<Recipe> recipeList;
 
   const MealWidget({
     Key? key,
     required this.title,
+    required this.recipeList,
   }) : super(key: key);
 
   @override
@@ -23,10 +25,10 @@ class MealWidget extends StatelessWidget {
           ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            itemCount: mealList.length,
+            itemCount: recipeList.length,
             itemBuilder: (BuildContext context, int index) {
               return MealSmallCard(
-                meal: mealList[index],
+                recipe: recipeList[index],
               );
             },
           ),

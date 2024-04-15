@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:meal_prep/core/extensions/text_styles.dart';
 import 'package:meal_prep/core/extensions/theme_colors.dart';
-import 'package:meal_prep/models/meal.dart';
+import 'package:meal_prep/models/recipe.dart';
 
 class SearchCard extends StatelessWidget {
-  final Meal meal;
-  const SearchCard({Key? key, required this.meal}) : super(key: key);
+  final Recipe recipe;
+  const SearchCard({Key? key, required this.recipe}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class SearchCard extends StatelessWidget {
                   shape: BoxShape.circle,
                   image: DecorationImage(
                     fit: BoxFit.cover,
-                    image: NetworkImage(meal.recipe.imageUrl),
+                    image: NetworkImage(recipe.imageUrl),
                   ),
                 ),
               ),
@@ -46,19 +46,19 @@ class SearchCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      meal.recipe.name,
+                      recipe.name,
                       textAlign: TextAlign.start,
                       style: context.title,
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      meal.recipe.description,
+                      recipe.description,
                       textAlign: TextAlign.start,
                       style: context.description,
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      '${meal.recipe.duration}, ${meal.recipe.calories}',
+                      '${recipe.duration}, ${recipe.calories}',
                       textAlign: TextAlign.start,
                       style: context.smallDescription,
                     ),

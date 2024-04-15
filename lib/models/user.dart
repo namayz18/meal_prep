@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meal_prep/core/database/local_entity.dart';
-import 'package:meal_prep/models/meal.dart';
+import 'package:meal_prep/models/plan.dart';
 import 'package:meal_prep/models/recipe.dart';
 
 part 'user.g.dart';
@@ -56,23 +56,23 @@ class ShoppingList {
 // don't forget to add fromJson and toJson
 @JsonSerializable()
 class User implements LocalEntity {
-  final String id;
-  final String firstName;
-  final String lastName;
-  final String imageUrl;
-  final String email;
-  final bool isLoggedIn;
-  final String gender;
-  final int age;
-  final int height;
-  final int weight;
-  final List<Meal> meals;
-  final List<FavoriteMeal> favoriteMeals;
-  final List<PersonalRecipe> personalRecipes;
-  final List<ShoppingList> shoppingList;
-  final DateTime joinedAt;
+  String id;
+  String firstName;
+  String lastName;
+  String imageUrl;
+  String email;
+  bool isLoggedIn;
+  String gender;
+  int age;
+  int height;
+  int weight;
+  ActivePlan? plan;
+  List<FavoriteMeal> favoriteMeals;
+  List<PersonalRecipe> personalRecipes;
+  List<ShoppingList> shoppingList;
+  DateTime joinedAt;
 
-  const User({
+  User({
     required this.id,
     required this.firstName,
     required this.lastName,
@@ -83,10 +83,10 @@ class User implements LocalEntity {
     required this.age,
     required this.height,
     required this.weight,
-    required this.meals,
-    required this.favoriteMeals,
-    required this.personalRecipes,
-    required this.shoppingList,
+    this.plan,
+    this.favoriteMeals = const [],
+    this.personalRecipes = const [],
+    this.shoppingList = const [],
     required this.joinedAt,
   });
 

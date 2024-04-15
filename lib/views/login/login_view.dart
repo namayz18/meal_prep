@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meal_prep/core/extensions/text_styles.dart';
 import 'package:meal_prep/views/main/main_view.dart';
-import 'package:meal_prep/widgets/button/custom_icon_button.dart';
+import 'package:meal_prep/widgets/button/custom_back_button.dart';
 import 'package:meal_prep/widgets/button/custom_text_button.dart';
 import 'package:meal_prep/widgets/button/custom_icon_text_button.dart';
 import 'package:meal_prep/widgets/button/custom_button.dart';
@@ -47,7 +47,9 @@ class _LoginViewState extends State<LoginView> {
       body: ListView(
         children: [
           CustomBackButton(
-            onPress: () => Navigator.pop(context),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
           ),
           const SizedBox(height: 16),
           const CustomHeadingText(title: 'Let\'s get started.'),

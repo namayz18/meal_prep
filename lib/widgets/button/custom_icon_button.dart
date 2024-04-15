@@ -28,28 +28,3 @@ class CustomIconButton extends StatelessWidget {
     );
   }
 }
-
-class CustomBackButton extends StatelessWidget {
-  final VoidCallback? onPress;
-  final Color? color;
-
-  const CustomBackButton({
-    Key? key,
-    this.onPress,
-    this.color,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        CustomIconButton(
-          icon: 'assets/icons/Arrow_Left.svg',
-          onPress: onPress,
-          color: color,
-        ),
-        const Spacer(),
-      ],
-    );
-  }
-}

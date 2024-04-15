@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meal_prep/core/extensions/text_styles.dart';
 import 'package:meal_prep/views/login/login_view.dart';
-import 'package:meal_prep/widgets/button/custom_icon_button.dart';
+import 'package:meal_prep/widgets/button/custom_back_button.dart';
 import 'package:meal_prep/widgets/button/custom_icon_text_button.dart';
 import 'package:meal_prep/widgets/button/custom_button.dart';
 import 'package:meal_prep/widgets/textfield/custom_textfield.dart';
@@ -50,7 +50,9 @@ class _SignupViewState extends State<SignupView> {
       body: ListView(
         children: [
           CustomBackButton(
-            onPress: () => Navigator.pop(context),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
           ),
           const SizedBox(height: 16),
           const CustomHeadingText(title: 'Let\'s get started.'),

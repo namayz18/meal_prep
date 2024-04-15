@@ -5,6 +5,7 @@ import 'package:meal_prep/core/extensions/theme_colors.dart';
 
 class SettingsWidget extends StatelessWidget {
   final List<String> _settingsList = [
+    'Personal Details',
     'Notification',
     'Week Start',
     'Units',

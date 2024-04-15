@@ -80,7 +80,7 @@ Widget recipeDetailView(BuildContext context, Recipe recipe) {
         customTextView(context, 'Name', recipe.name),
         customTextView(context, 'Description', recipe.description),
         customTextView(context, 'Duration', recipe.duration),
-        customTextView(context, 'Calories', recipe.calories),
+        customTextView(context, 'Calories', recipe.calories.toString()),
         customTextView(context, 'Calories', recipe.category),
         editSingleListView(context, 'Types', recipe.types),
         editIngredientView(context, 'Ingredients', recipe.ingredients),

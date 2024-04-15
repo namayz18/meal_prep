@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:meal_prep/models/meal.dart';
-import 'package:meal_prep/widgets/card/meal_small_card.dart';
 import 'package:meal_prep/widgets/textfield/search_textfield.dart';
 
 class SearchView extends StatefulWidget {
@@ -46,24 +44,24 @@ class _SearchViewState extends State<SearchView> {
               ),
             ),
           )),
-      body: ListView(children: [
-        const SizedBox(height: 8),
-        searchListResultView(),
+      body: ListView(children: const [
+        SizedBox(height: 8),
+        // searchListResultView(),
       ]),
     );
   }
 }
 
-Widget searchListResultView() {
-  return ListView.builder(
-    shrinkWrap: true,
-    physics: const NeverScrollableScrollPhysics(),
-    itemCount: mealList.length,
-    itemBuilder: (BuildContext context, int index) {
-      return MealSmallCard(
-        meal: mealList[index],
-        type: CardType.recipe,
-      );
-    },
-  );
-}
+// Widget searchListResultView() {
+//   return ListView.builder(
+//     shrinkWrap: true,
+//     physics: const NeverScrollableScrollPhysics(),
+//     itemCount: planList.first.recipeList.length,
+//     itemBuilder: (BuildContext context, int index) {
+//       return MealSmallCard(
+//         recipe: planList.first.recipeList[index],
+//         type: CardType.recipe,
+//       );
+//     },
+//   );
+// }

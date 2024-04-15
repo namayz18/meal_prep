@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:meal_prep/core/extensions/text_styles.dart';
 import 'package:meal_prep/core/extensions/theme_colors.dart';
-import 'package:meal_prep/models/meal.dart';
+import 'package:meal_prep/models/recipe.dart';
 
 class MealGridCard extends StatelessWidget {
-  final Meal meal;
-  const MealGridCard({Key? key, required this.meal}) : super(key: key);
+  final Recipe recipe;
+  const MealGridCard({Key? key, required this.recipe}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class MealGridCard extends StatelessWidget {
                 ),
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: NetworkImage(meal.recipe.imageUrl),
+                  image: NetworkImage(recipe.imageUrl),
                 ),
               ),
             ),
@@ -44,13 +44,13 @@ class MealGridCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  meal.recipe.name,
+                  recipe.name,
                   textAlign: TextAlign.start,
                   style: context.title,
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  meal.recipe.description,
+                  recipe.description,
                   textAlign: TextAlign.start,
                   style: context.description,
                 ),

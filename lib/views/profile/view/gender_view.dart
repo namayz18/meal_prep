@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:meal_prep/core/constants/color.dart';
 import 'package:meal_prep/core/extensions/text_styles.dart';
 import 'package:meal_prep/core/extensions/theme_colors.dart';
 import 'package:meal_prep/views/profile/widgets/next_button.dart';
@@ -76,7 +77,7 @@ class GenderView extends StatelessWidget {
                         'Male',
                         textAlign: TextAlign.center,
                         style: context.title?.copyWith(
-                          color: context.onPrimary,
+                          color: AppColors.kWhite,
                         ),
                       ),
                     )
@@ -121,7 +122,7 @@ class GenderView extends StatelessWidget {
                         'Female',
                         textAlign: TextAlign.center,
                         style: context.title?.copyWith(
-                          color: context.onPrimary,
+                          color: AppColors.kWhite,
                         ),
                       ),
                     )

@@ -45,7 +45,10 @@ class HomeDayView extends StatelessWidget {
               const SizedBox(height: 16),
               const HomeStatsWidget(),
               const SizedBox(height: 16),
-              HomeMealCategoryView(controller: controller),
+              HomeMealCategoryView(
+                controller: controller,
+                selectedDate: focusDate,
+              ),
               const SizedBox(height: 80),
             ],
           ),

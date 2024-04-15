@@ -16,7 +16,7 @@ class ProfileController {
       age: age ?? 0,
       height: height ?? 0,
       weight: weight ?? 0,
-      meals: [],
+      plan: null,
       favoriteMeals: [],
       personalRecipes: [],
       shoppingList: [],

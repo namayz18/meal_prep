@@ -1,5 +1,4 @@
 import 'package:meal_prep/core/database/local_entity.dart';
-import 'package:meal_prep/models/meal.dart';
 import 'package:meal_prep/models/user.dart';
 
 class LocalUserService {
@@ -24,35 +23,13 @@ class LocalUserService {
     return Users.isEmpty;
   }
 
-  User? getUserDetail() {
-    if (!isUserEmpty()) {
-      final users = userRepo.getAllEntities<User>();
-      return users.first;
-    } else {
-      return null;
-    }
+  User getUserDetail() {
+    final users = userRepo.getAllEntities<User>();
+    return users.first;
   }
 
   deleteUser() {
     var user = getUserDetail();
-    if (user != null) {
-      userRepo.deleteData(user.id);
-    }
-  }
-
-  addMeal(Meal meal) {
-    var user = getUserDetail();
-    if (user != null) {
-      user.meals.add(meal);
-      saveUser(user);
-    }
-  }
-
-  List<Meal> getMeals() {
-    var user = getUserDetail();
-    if (user != null) {
-      return user.meals;
-    }
-    return [];
+    userRepo.deleteData(user.id);
   }
 }

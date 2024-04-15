@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meal_prep/core/constants/color.dart';
 import 'package:meal_prep/core/extensions/device_size.dart';
 import 'package:meal_prep/core/extensions/text_styles.dart';
 import 'package:meal_prep/views/profile/profile_onboarding_view.dart';
@@ -38,7 +39,9 @@ class _WelcomeViewState extends State<WelcomeView> {
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Text(
                     'Let\'s get started.',
-                    style: context.display,
+                    style: context.display?.copyWith(
+                      color: AppColors.kBlack,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -46,7 +49,10 @@ class _WelcomeViewState extends State<WelcomeView> {
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Text(
                     'Start your meal prep journey to a healthier life with us.',
-                    style: context.heading,
+                    style: context.subHeading?.copyWith(
+                      color: AppColors.kBlack,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 30),

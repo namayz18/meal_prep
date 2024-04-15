@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:meal_prep/core/extensions/theme_colors.dart';
 import 'package:meal_prep/views/main/main_view.dart';
 import 'package:meal_prep/views/profile/controller/profile_controller.dart';
@@ -7,6 +6,7 @@ import 'package:meal_prep/views/profile/view/age_view.dart';
 import 'package:meal_prep/views/profile/view/gender_view.dart';
 import 'package:meal_prep/views/profile/view/height_view.dart';
 import 'package:meal_prep/views/profile/view/weight_view.dart';
+import 'package:meal_prep/widgets/button/custom_back_button.dart';
 import 'package:meal_prep/widgets/button/custom_text_button.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
@@ -83,6 +83,18 @@ class _ProfileOnboardingViewState extends State<ProfileOnboardingView> {
         });
         break;
     }
+  }
+
+  void onPressBack(BuildContext context) {
+    if (_selectedType == types.first) {
+      saveUserDetails();
+      Navigator.of(context).pop();
+      return;
+    }
+    setState(() {
+      _progress -= 0.25;
+      _selectedType = types[types.indexOf(_selectedType) - 1];
+    });
   }
 
   void onSkip(BuildContext context) {
@@ -184,6 +196,9 @@ class _ProfileOnboardingViewState extends State<ProfileOnboardingView> {
           navBar(
             context,
             () {
+              onPressBack(context);
+            },
+            () {
               onSkip(context);
             },
             _progress,
@@ -195,29 +210,13 @@ class _ProfileOnboardingViewState extends State<ProfileOnboardingView> {
   }
 }
 
-Widget navBar(
-    BuildContext context, void Function()? onPressedNext, double progress) {
+Widget navBar(BuildContext context, void Function() onPressedBack,
+    void Function() onPressedNext, double progress) {
   return Row(
+    crossAxisAlignment: CrossAxisAlignment.center,
     children: [
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: Container(
-          width: 40,
-          height: 40,
-          decoration: const BoxDecoration(
-            color: Color(0xFF3A3A3C),
-            shape: BoxShape.circle,
-          ),
-          child: Center(
-            child: SvgPicture.asset(
-              'assets/icons/Arrow_Left.svg',
-              colorFilter: const ColorFilter.mode(
-                Colors.white,
-                BlendMode.srcIn,
-              ),
-            ),
-          ),
-        ),
+      CustomBackButton(
+        onPressed: onPressedBack,
       ),
       Expanded(
         child: LinearPercentIndicator(

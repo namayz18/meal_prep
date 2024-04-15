@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:meal_prep/core/extensions/text_styles.dart';
 import 'package:meal_prep/core/extensions/theme_colors.dart';
-import 'package:meal_prep/models/meal.dart';
+import 'package:meal_prep/models/recipe.dart';
 
 class MealTileCard extends StatelessWidget {
-  final Meal meal;
-  const MealTileCard({Key? key, required this.meal}) : super(key: key);
+  final Recipe recipe;
+  const MealTileCard({Key? key, required this.recipe}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class MealTileCard extends StatelessWidget {
                   shape: BoxShape.circle,
                   image: DecorationImage(
                     fit: BoxFit.cover,
-                    image: NetworkImage(meal.recipe.imageUrl),
+                    image: NetworkImage(recipe.imageUrl),
                   ),
                 ),
               ),
@@ -47,7 +47,7 @@ class MealTileCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      meal.recipe.name,
+                      recipe.name,
                       textAlign: TextAlign.start,
                       style: context.title,
                       maxLines: 1,
@@ -66,7 +66,7 @@ class MealTileCard extends StatelessWidget {
                         ),
                         const SizedBox(width: 4),
                         Text(
-                          meal.recipe.duration,
+                          recipe.duration,
                           textAlign: TextAlign.start,
                           style: context.smallDescription,
                         ),
@@ -86,7 +86,7 @@ class MealTileCard extends StatelessWidget {
                         ),
                         const SizedBox(width: 4),
                         Text(
-                          meal.recipe.calories,
+                          "${recipe.calories} kcal",
                           textAlign: TextAlign.start,
                           style: context.smallDescription,
                         ),

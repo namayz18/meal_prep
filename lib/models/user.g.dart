@@ -51,18 +51,21 @@ User _$UserFromJson(Map<String, dynamic> json) => User(
       age: json['age'] as int,
       height: json['height'] as int,
       weight: json['weight'] as int,
-      meals: (json['meals'] as List<dynamic>)
-          .map((e) => Meal.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      favoriteMeals: (json['favoriteMeals'] as List<dynamic>)
-          .map((e) => FavoriteMeal.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      personalRecipes: (json['personalRecipes'] as List<dynamic>)
-          .map((e) => PersonalRecipe.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      shoppingList: (json['shoppingList'] as List<dynamic>)
-          .map((e) => ShoppingList.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      plan: json['plan'] == null
+          ? null
+          : ActivePlan.fromJson(json['plan'] as Map<String, dynamic>),
+      favoriteMeals: (json['favoriteMeals'] as List<dynamic>?)
+              ?.map((e) => FavoriteMeal.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+      personalRecipes: (json['personalRecipes'] as List<dynamic>?)
+              ?.map((e) => PersonalRecipe.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+      shoppingList: (json['shoppingList'] as List<dynamic>?)
+              ?.map((e) => ShoppingList.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
       joinedAt: DateTime.parse(json['joinedAt'] as String),
     );
 
@@ -77,7 +80,7 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'age': instance.age,
       'height': instance.height,
       'weight': instance.weight,
-      'meals': instance.meals,
+      'plan': instance.plan,
       'favoriteMeals': instance.favoriteMeals,
       'personalRecipes': instance.personalRecipes,
       'shoppingList': instance.shoppingList,

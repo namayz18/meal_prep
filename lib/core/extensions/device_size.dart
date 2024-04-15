@@ -25,5 +25,7 @@ extension BuildContextEntension<T> on BuildContext {
 
   double get topPadding => MediaQuery.of(this).padding.top;
 
-  double get bottomPadding => MediaQuery.of(this).padding.bottom;
+  double get bottomPadding => MediaQuery.of(this).padding.bottom == 0
+      ? 16
+      : MediaQuery.of(this).padding.bottom;
 }

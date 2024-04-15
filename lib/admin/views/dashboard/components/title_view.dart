@@ -11,7 +11,6 @@ class TitleView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
     return Column(
       children: [
         Row(
@@ -28,7 +27,9 @@ class TitleView extends StatelessWidget {
                   vertical: 16.0,
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                adminController.addPlan();
+              },
               icon: const Icon(Icons.add),
               label: const Text("Add New"),
             ),

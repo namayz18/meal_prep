@@ -1,24 +1,21 @@
-import 'package:meal_prep/controllers/recipe_controller.dart';
-import 'package:meal_prep/models/meal.dart';
+import 'package:meal_prep/models/plan.dart';
 import 'package:meal_prep/services/local/local_user_service.dart';
 
 class HomeViewController {
   final LocalUserService localUserService = LocalUserService();
-  final RecipeController recipeController = RecipeController();
 
-  addMeal(Meal meal) async {
-    await localUserService.addMeal(meal);
-  }
+  List<Meal> getMeals(DateTime selectedDate) {
+    var user = localUserService.getUserDetail();
+    ActivePlan? activePlan = user.plan;
 
-  Future<List<Meal>?> getMeals() async {
-    return localUserService.getMeals();
-  }
-
-  Meal? getBreakfastMeal() {
-    var meals = localUserService.getMeals();
-    if (meals.isNotEmpty) {
-      return meals.firstWhere((meal) => meal.category == 'breakfast');
+    if (activePlan != null &&
+        (selectedDate.isAtSameMomentAs(activePlan.startDate) ||
+            selectedDate.isAtSameMomentAs(activePlan.endDate) ||
+            (selectedDate.isAfter(activePlan.startDate) &&
+                selectedDate.isBefore(activePlan.endDate)))) {
+      int index = selectedDate.difference(activePlan.startDate).inDays;
+      return activePlan.mealList[index];
     }
-    return null;
+    return [];
   }
 }

@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:meal_prep/core/extensions/text_styles.dart';
 import 'package:meal_prep/core/extensions/theme_colors.dart';
-import 'package:meal_prep/models/meal.dart';
 import 'package:meal_prep/widgets/button/custom_icon_text_button.dart';
 import 'package:meal_prep/widgets/button/custom_text_button.dart';
-import 'package:meal_prep/widgets/card/meal_tile_card.dart';
 import 'package:meal_prep/widgets/text/custom_app_bar_text.dart';
 
 class ShoppingView extends StatefulWidget {
@@ -40,7 +38,7 @@ class _ShoppingViewState extends State<ShoppingView> {
                   ),
                   const SizedBox(height: 16),
                   allIngredientsListWidget(context),
-                  shoppingListWidget(context),
+                  // shoppingListWidget(context),
                 ],
               ),
             ),
@@ -51,18 +49,18 @@ class _ShoppingViewState extends State<ShoppingView> {
   }
 }
 
-Widget shoppingListWidget(BuildContext context) {
-  return ListView.builder(
-    shrinkWrap: true,
-    physics: const NeverScrollableScrollPhysics(),
-    itemCount: mealList.length,
-    itemBuilder: (BuildContext context, int index) {
-      return MealTileCard(
-        meal: mealList[index],
-      );
-    },
-  );
-}
+// Widget shoppingListWidget(BuildContext context) {
+//   return ListView.builder(
+//     shrinkWrap: true,
+//     physics: const NeverScrollableScrollPhysics(),
+//     itemCount: planList.first.recipeList.length,
+//     itemBuilder: (BuildContext context, int index) {
+//       return MealTileCard(
+//         recipe: planList.first.recipeList[index],
+//       );
+//     },
+//   );
+// }
 
 Widget allIngredientsListWidget(BuildContext context) {
   return Padding(

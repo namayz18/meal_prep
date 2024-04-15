@@ -113,7 +113,7 @@ class RecipeCard extends StatelessWidget {
                           ),
                           const SizedBox(width: 4),
                           Text(
-                            recipe.calories,
+                            "${recipe.calories} kcal",
                             textAlign: TextAlign.start,
                             style: context.smallDescription,
                           ),

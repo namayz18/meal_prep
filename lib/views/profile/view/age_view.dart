@@ -70,8 +70,9 @@ Widget datePicker(
   DateTime selectedDate,
   void Function(DateTime) onPickerSelected,
 ) {
-  return SizedBox(
+  return Container(
     height: 300,
+    color: Colors.black,
     child: CustomDatePicker(
       itemExtent: 50,
       minDate: minDate,
@@ -86,19 +87,9 @@ Widget datePicker(
           ),
         ),
       ),
-      selectedStyle: const TextStyle(
-        color: Colors.black,
-        fontWeight: FontWeight.w600,
-        fontSize: 24,
-      ),
-      unselectedStyle: TextStyle(
-        color: Colors.grey[800],
-        fontSize: 18,
-      ),
-      disabledStyle: TextStyle(
-        color: Colors.grey[400],
-        fontSize: 18,
-      ),
+      selectedStyle: context.display?.copyWith(color: Colors.white),
+      unselectedStyle: context.title?.copyWith(color: Colors.white),
+      disabledStyle: context.title?.copyWith(color: Colors.grey),
       onSelectedItemChanged: onPickerSelected,
     ),
   );
